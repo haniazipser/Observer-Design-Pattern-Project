@@ -41,11 +41,9 @@ int main()
     g.cloneTree(0);
     g.displayAll();
     g.cloneTree(0);
-    g.displayAll();
     g.extractTree(0);
     g.extractTree(1);
     g.extractTree(2);
-    g.displayAll();
     g.plantTree();
     g.plantTree();
     g.plantTree();
@@ -56,30 +54,22 @@ int main()
     g.getTreePointer(2)->growthTree();
     g.cloneTree(2);
     g.extractTree(2);
-    g.displayAll();
     g.cloneTree(3);
-    g.displayAll();
     for(int i=0; i!=20; i++)g.getTreePointer(2)->growthTree();
     for(int i=0; i!=10; i++)g.getTreePointer(3)->growthTree();
     g.growthGarden();
-    g.displayAll();
     g.extractTree(2);
-    g.displayAll();
     std::cout<<g.getTreePointer(2)<<std::endl;
     for(int i=0; i!=20; i++) g.extractTree(i);
-    g.displayAll();
     g.plantTree();
     for(int i=0; i!=10; i++) g.cloneTree(i);
-    g.displayAll();
     g.growthGarden();
     g.growthGarden();
     g.growthGarden();
     g.getTreePointer(5)->growthTree();
-    g.displayAll();
     for(int i=0; i!=10; i++) g.cloneTree(i);
     g.getTreePointer(5)->growthTree();
     for(int i=20; i!=-1; i--) g.extractTree(i);
-    g.displayAll();
 
     return 0;
 }
