@@ -21,9 +21,9 @@ class GARDEN_CLASS{
     void extractTree(unsigned int id);
     void growthGarden();
     void fadeGarden();
-     void harvestGarden(unsigned int waga);
-     TREE_CLASS* getTreePointer(unsigned int id);
-     void cloneTree(unsigned int id);
+    void harvestGarden(unsigned int waga);
+    TREE_CLASS* getTreePointer(unsigned int id);
+    void cloneTree(unsigned int id);
 
     unsigned int getFreeId();
     void freeId(unsigned int id);
