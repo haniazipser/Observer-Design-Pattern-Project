@@ -37,16 +37,16 @@ using namespace std;
         }
         (*this).id = id;
         (*this).wysokosc = doSkopiowania.wysokosc;
-        (*this).ileGalezi = 0;//doSkopiowania.ileGalezi;
-        (*this).ileOwocow = 0;//doSkopiowania.ileOwocow;
+        (*this).ileGalezi = 0;
+        (*this).ileOwocow = 0;
         wagaOwocow = 0;
-        (*this).wagaOwocow = 0;//doSkopiowania.wagaOwocow;
+        (*this).wagaOwocow = 0;
         next = NULL;
         prev = NULL;
 
         //kopiujemy liste
       BRANCH_CLASS* galaz = doSkopiowania.pierwszaGalaz;
-      if (galaz != NULL){//jest co kopiowac
+      if (galaz != NULL){
          
           BRANCH_CLASS* kopia = new BRANCH_CLASS(*galaz, this, (*galaz).getHeight());
           (*this).pierwszaGalaz = kopia;
