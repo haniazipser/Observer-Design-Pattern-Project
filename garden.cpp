@@ -89,7 +89,7 @@ using namespace std;
                         pierwszeDrzewo = NULL;
                         ostatnieDrzewo = NULL;
                         dostepneId = 0;
-                    }else{//??
+                    }else{
                         dostepneId--;
                         ostatnieDrzewo = (*drzewo).getPrev();
                         (*ostatnieDrzewo).setNext(NULL);
@@ -111,9 +111,6 @@ using namespace std;
             }
             drzewo = (*drzewo).getPrev();
         }
-       // cout<<"pierwsze:"<<(*pierwszeDrzewo).getNumber()<<endl;
-       // cout<<"ostatnie:"<<(*ostatnieDrzewo).getNumber()<<endl;
-
     }
 
     void GARDEN_CLASS:: growthGarden(){
@@ -155,7 +152,6 @@ using namespace std;
         return NULL;
     }
 
-    ///TO DO CLONE TREE
     void GARDEN_CLASS::cloneTree(unsigned int id){
         TREE_CLASS* drzewo = pierwszeDrzewo;
         TREE_CLASS* doSkopiowania = NULL;
@@ -168,15 +164,13 @@ using namespace std;
         }
 
         if (doSkopiowania!= NULL){
-
-
-            if (ileDrzew == dostepneId){//nie ma dziur
+            if (ileDrzew == dostepneId){//nie ma przerw
                 TREE_CLASS* noweDrzewo = new TREE_CLASS(*doSkopiowania,this, dostepneId);
                 dostepneId++;
                 (*ostatnieDrzewo).setNext(noweDrzewo);
                 (*noweDrzewo).setPrev(ostatnieDrzewo);
                 ostatnieDrzewo = noweDrzewo;
-            }else{//szukaj dziury
+            }else{//szukaj przerwy
                 if ((*pierwszeDrzewo).getNumber()!=0){//dziura na poczatku
                     TREE_CLASS* noweDrzewo = new TREE_CLASS(*doSkopiowania,this, 0);
                     (*noweDrzewo).setNext(pierwszeDrzewo);
@@ -213,33 +207,23 @@ using namespace std;
         ileDrzew += ilosc;
     }
     void GARDEN_CLASS:: displayAll(){
-        /*cout<<"ilosc drzew:"<<ileDrzew<<endl;
-        cout<<"ilosc galezi:"<<ileGalezi<<endl;
-        cout<<"ilosc owocow:"<<ileOwocow<<endl;
-        cout<<"waga owocow:"<<wagaOwocow<<endl;
-        TREE_CLASS* drzewo = pierwszeDrzewo;
-        while (drzewo != NULL){
-            (*drzewo).wyswietlDrzewo();
-            drzewo = (*drzewo).getNext();
-        }
-        cout<<endl;*/
         std::cout << "GARDEN:" << std::endl;
-    std::cout << "fruit_count:" << getFruitsTotal() << " ";
-    std::cout << "tree_count:" << getTreesTotal() << " ";
-    std::cout << "branch_count:" << getBranchesTotal() << " ";
-    std::cout << "weights:" << getWeightsTotal() << std::endl;
-    std::cout << "trees: \n";
-    int max = getTreesTotal(), i = 0;
-    while (i <= max){
-        TREE_CLASS * wood = getTreePointer(i);
-        if (wood != NULL) {
-            std:: cout << "tree nr " << i << std::endl;
-            wood->displayAll();
-            std::cout << std::endl;
+        std::cout << "fruit_count:" << getFruitsTotal() << " ";
+        std::cout << "tree_count:" << getTreesTotal() << " ";
+        std::cout << "branch_count:" << getBranchesTotal() << " ";
+        std::cout << "weights:" << getWeightsTotal() << std::endl;
+        std::cout << "trees: \n";
+        int max = getTreesTotal(), i = 0;
+        while (i <= max){
+            TREE_CLASS * wood = getTreePointer(i);
+            if (wood != NULL) {
+                std:: cout << "tree nr " << i << std::endl;
+                wood->displayAll();
+                std::cout << std::endl;
+            }
+            i++;
         }
-        i++;
-    }
-    std::cout << std::endl;
-    std::cout << "/ / / / / / / /";
-    std::cout << std::endl<< std::endl;
+        std::cout << std::endl;
+        std::cout << "/ / / / / / / /";
+        std::cout << std::endl<< std::endl;
     }
