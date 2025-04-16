@@ -1,7 +1,9 @@
 //Hanna Zipser
 #include <iostream>
-class BRANCH_CLASS;
 using namespace std;
+
+class BRANCH_CLASS;
+
 class FRUIT_CLASS{
     unsigned int waga;
     unsigned int dlugosc;
