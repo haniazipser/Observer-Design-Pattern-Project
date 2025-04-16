@@ -31,9 +31,9 @@ using namespace std;
             (*drzewo).zmianaIlosciGalezi(1);
         }
       (*this).dlugosc = doSkopiowania.dlugosc;
-      (*this).ileOwocow = 0;//doSkopiowania.ileOwocow;
-      (*this).wagaOwocow = 0;//doSkopiowania.wagaOwocow;
-      (*this).wysokosc = wysokosc;///TUTAJ
+      (*this).ileOwocow = 0;
+      (*this).wagaOwocow = 0;
+      (*this).wysokosc = wysokosc;
       (*this).drzewo = drzewo;
       next = NULL;
 
@@ -57,9 +57,9 @@ using namespace std;
 
     BRANCH_CLASS::BRANCH_CLASS(const BRANCH_CLASS & doSkopiowania){
       (*this).dlugosc = doSkopiowania.dlugosc;
-      (*this).ileOwocow = 0;//doSkopiowania.ileOwocow;
-      (*this).wagaOwocow = 0;//doSkopiowania.wagaOwocow;
-      (*this).wysokosc = doSkopiowania.wysokosc;///TUTAJ
+      (*this).ileOwocow = 0;
+      (*this).wagaOwocow = 0;
+      (*this).wysokosc = doSkopiowania.wysokosc;
       (*this).drzewo = doSkopiowania.drzewo;
       if(drzewo != NULL){
          (*drzewo).zmianaIlosciGalezi(1);
@@ -71,7 +71,6 @@ using namespace std;
       if (owoc != NULL){//jest co kopiowac
           FRUIT_CLASS* kopia = new FRUIT_CLASS(*owoc, this);
           (*this).pierwszyOwoc = kopia;
-         // cout<<"Pierwszy:"<<(*(*this).pierwszyOwoc).getWeight();
           owoc = (*owoc).getNext();
 
           FRUIT_CLASS* poprzedni = kopia;
@@ -88,9 +87,9 @@ using namespace std;
 
     BRANCH_CLASS::BRANCH_CLASS(const BRANCH_CLASS & doSkopiowania, TREE_CLASS* drzewo){
       (*this).dlugosc = doSkopiowania.dlugosc;
-      (*this).ileOwocow = 0;//doSkopiowania.ileOwocow;
-      (*this).wagaOwocow = 0;//doSkopiowania.wagaOwocow;
-      (*this).wysokosc = doSkopiowania.wysokosc;///TUTAJ
+      (*this).ileOwocow = 0;
+      (*this).wagaOwocow = 0;
+      (*this).wysokosc = doSkopiowania.wysokosc;
       (*this).drzewo = drzewo;
       if(drzewo != NULL){
          (*drzewo).zmianaIlosciGalezi(1);
@@ -102,7 +101,6 @@ using namespace std;
       if (owoc != NULL){//jest co kopiowac
           FRUIT_CLASS* kopia = new FRUIT_CLASS(*owoc, this);
           (*this).pierwszyOwoc = kopia;
-         // cout<<"Pierwszy:"<<(*(*this).pierwszyOwoc).getWeight();
           owoc = (*owoc).getNext();
 
           FRUIT_CLASS* poprzedni = kopia;
@@ -162,13 +160,11 @@ using namespace std;
             if (dlugosc%2==0 && dlugosc > 0){
                 FRUIT_CLASS* nowyOwoc = new FRUIT_CLASS(this, dlugosc);
                 (*owoc).setNext(nowyOwoc);
-                //ileOwocow++;
             }
         }else{
             if (dlugosc%2==0 && dlugosc > 0){
                 FRUIT_CLASS* nowyOwoc = new FRUIT_CLASS(this, dlugosc);
                 pierwszyOwoc = nowyOwoc;
-                //ileOwocow++;
             }
         }
     }
@@ -272,27 +268,17 @@ using namespace std;
     }
 
     void BRANCH_CLASS::displayAll(){
-        /*cout<<" ile Owocow:"<<ileOwocow<<endl;
-        cout<<" ";
-        FRUIT_CLASS* owoc = pierwszyOwoc;
-        int ile = 0;
-        while (owoc != NULL){
-            (*owoc).wyswietlOwoc();
-            owoc = (*owoc).getNext();
-            ile++;
-        }
-        cout<<"\nwyswietlono" <<ile<<endl;*/
          std::cout << "-----fruit_count:" << getFruitsTotal() << " ";
-    std::cout << "weights:" << getWeightsTotal() << std::endl;
-    std::cout << "length:" << dlugosc << std::endl;
-    int max = getFruitsTotal(), i = 2;
-    if (max>0) std::cout << "-----fruits: \n";
-    while (i <= 2*max){
-        FRUIT_CLASS * fruit = getFruitPointer(i);
-        if (fruit != NULL) {
-            std:: cout << "       *fruit at " << i << std::endl;
-            std::cout <<"       *length: " << fruit->getLength() << " weight: "<< fruit->getWeight() << std::endl;}
-        i+=2;
-    }
+        std::cout << "weights:" << getWeightsTotal() << std::endl;
+        std::cout << "length:" << dlugosc << std::endl;
+        int max = getFruitsTotal(), i = 2;
+        if (max>0) std::cout << "-----fruits: \n";
+        while (i <= 2*max){
+            FRUIT_CLASS * fruit = getFruitPointer(i);
+            if (fruit != NULL) {
+                std:: cout << "       *fruit at " << i << std::endl;
+                std::cout <<"       *length: " << fruit->getLength() << " weight: "<< fruit->getWeight() << std::endl;}
+            i+=2;
+        }
     }
 
